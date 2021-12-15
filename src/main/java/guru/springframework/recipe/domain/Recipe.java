@@ -106,4 +106,12 @@ public class Recipe extends BaseEntity {
     public void setNotes(Notes notes) {
         this.notes = notes;
     }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 }
