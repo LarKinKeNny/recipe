@@ -1,10 +1,17 @@
 package guru.springframework.recipe.domain;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true, exclude = {"recipe"})
+@Data
 @Entity
 public class Ingredient extends BaseEntity {
 
@@ -17,19 +24,16 @@ public class Ingredient extends BaseEntity {
     @OneToOne
     private UnitOfMeasure unitOfMeasure;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure) {
         this.description = description;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
         this.amount = amount;
+        this.unitOfMeasure = unitOfMeasure;
+    }
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.recipe = recipe;
+        this.unitOfMeasure = unitOfMeasure;
     }
 }
