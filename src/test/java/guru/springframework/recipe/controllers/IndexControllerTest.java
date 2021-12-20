@@ -57,7 +57,7 @@ class IndexControllerTest {
         //then
         assertEquals("index" , indexPage);
 
-        var setArgumentCaptor = ArgumentCaptor.forClass(Set.class);
+        var setArgumentCaptor = ArgumentCaptor.forClass(List.class);
         verify(model, times(1)).addAttribute(eq("recipes"), setArgumentCaptor.capture());
         assertEquals(2, setArgumentCaptor.getValue().size());
 

@@ -12,17 +12,23 @@
     <title>Recipe View</title>
 </head>
 <body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page" th:href="@{/}">Recipes</a></li>
+    </ul>
+</header>
 <h1 th:text="${recipe.getDescription()}">Recipe Name</h1>
-<h4>Categories</h4>
-<table th:each="category : ${recipe.getCategories()}">
-    <tr th:text="${category.getDescription()}"></tr>
-</table>
-<hr>
+<div class="p-3 mb-2 bg-secondary text-white">
+    <h4>Categories</h4>
+    <table th:each="category : ${recipe.getCategories()}">
+        <tr th:text="${category.getDescription()}"></tr>
+    </table>
+</div>
 <h4>PrepTime:</h4>
-<p th:text="${recipe.getPrepTime()}">PrepTime</p>
+<p th:text="${recipe.getPrepTime()} + ' min'">PrepTime</p>
 <hr>
 <h4>CookTime:</h4>
-<p th:text="${recipe.getCookTime()}">CookTime</p>
+<p th:text="${recipe.getCookTime()} + ' min'">CookTime</p>
 <hr>
 <h4>Servings:</h4>
 <p th:text="${recipe.getServings()}">Servings</p>
