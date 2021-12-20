@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -49,7 +49,7 @@ class IndexControllerTest {
         var recipe = new Recipe();
         recipe.setId(1L);
 
-        when(recipeService.getRecipes()).thenReturn(Set.of(recipe, new Recipe()));
+        when(recipeService.getRecipes()).thenReturn(List.of(recipe, new Recipe()));
 
         //when
         var indexPage = indexController.getIndexPage(model);
