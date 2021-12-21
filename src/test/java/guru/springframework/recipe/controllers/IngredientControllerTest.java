@@ -46,4 +46,9 @@ public class IngredientControllerTest {
 
         verify(recipeService).findCommandById(eq(1L));
     }
+
+    @Test
+    void showIngredient() {
+
+    }
 }
