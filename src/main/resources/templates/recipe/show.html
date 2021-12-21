@@ -18,6 +18,8 @@
     </ul>
 </header>
 <h1 th:text="${recipe.getDescription()}">Recipe Name</h1>
+<a href="#" th:href="@{'/recipe/' +${recipe.id} + '/image'}">Change Image</a>
+<img src="../../static/sample.png" th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}" width="225" height="225">
 <div class="p-3 mb-2 bg-secondary text-white">
     <h4>Categories</h4>
     <table th:each="category : ${recipe.getCategories()}">
