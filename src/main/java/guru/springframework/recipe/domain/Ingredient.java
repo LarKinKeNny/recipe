@@ -1,8 +1,8 @@
 package guru.springframework.recipe.domain;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -10,8 +10,8 @@ import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true, exclude = {"recipe"})
-@Data
+@Getter
+@Setter
 @Entity
 public class Ingredient extends BaseEntity {
 

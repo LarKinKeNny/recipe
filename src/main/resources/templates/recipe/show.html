@@ -43,7 +43,7 @@
 <p th:text="${recipe.getDirections()}">Directions</p>
 <hr>
 <h4>Difficulty:</h4>
-<p th:text="${recipe.getDifficulty()}">Difficulties</p>
+<p th:text="${recipe.getDifficulty().name()}">Difficulties</p>
 <hr>
 <h4>Ingredients</h4>
 <a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}">Edit Ingredients</a>

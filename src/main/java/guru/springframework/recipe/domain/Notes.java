@@ -1,12 +1,14 @@
 package guru.springframework.recipe.domain;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 
-@EqualsAndHashCode(callSuper = true, exclude = {"recipe"})
-@Data
+@Getter
+@Setter
 @Entity
 public class Notes extends BaseEntity {
     @OneToOne
