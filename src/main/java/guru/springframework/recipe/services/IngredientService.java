@@ -5,4 +5,5 @@ import guru.springframework.recipe.commands.IngredientCommand;
 public interface IngredientService {
     IngredientCommand findById(Long id);
     IngredientCommand saveIngredient(IngredientCommand ingredientCommand);
+    void deleteIngredient(Long id);
 }
