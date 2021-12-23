@@ -3,14 +3,18 @@ package guru.springframework.recipe.controllers;
 import guru.springframework.recipe.commands.RecipeCommand;
 import guru.springframework.recipe.exceptions.NotFoundException;
 import guru.springframework.recipe.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.Map;
 
+@Slf4j
 @Controller
 @RequestMapping("/recipe")
 public class RecipeController {
@@ -41,7 +45,12 @@ public class RecipeController {
     }
 
     @PostMapping("")
-    public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
+    public String saveOrUpdate(@Valid @ModelAttribute("recipe") RecipeCommand command, BindingResult bindingResult) {
+
+        if(bindingResult.hasErrors()) {
+            log.debug(bindingResult.getAllErrors().toString());
+            return "recipe/recipeform";
+        }
         RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
 
         return "redirect:/recipe/" + savedCommand.getId() + "/show";
